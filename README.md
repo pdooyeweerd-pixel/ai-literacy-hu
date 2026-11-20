@@ -5,7 +5,7 @@ Bewerking voor de Hogeschool Utrecht van de e-learning **“AI Literacy voor doc
 - `index.html` – de e-learning als losse webpagina (open in een browser). Plekken die nog moeten worden aangepast zijn gemarkeerd.
 - `HU-aanpassingen-en-advies.docx` – lijst van wat nog moet worden vervangen, met advies voor HU-alternatieven en bronnen.
 - `lessons/` – handmatig bewerkte hoofdstukken (nu 1 en 2). Overige hoofdstukken worden automatisch uit `data/course.json` opgebouwd.
-- `assets/` – HU-logo (aangeleverd door team Huisstijl; niet onder de CC-licentie, alleen in een privé-repository delen).
+- `assets/` – HU-logo (aangeleverd door team Huisstijl; valt niet onder de CC-licentie).
 - `template.html`, `build.py` – opmaak en bouwscript (`data/cont.json` bepaalt waar de "Doorgaan"-knoppen staan, zoals in het origineel). Opnieuw bouwen: `python3 build.py`.
 - `make_docx.py`, `data/rows.json`, `data/links.json` – genereert het Word-bestand (`python-docx`).
 
