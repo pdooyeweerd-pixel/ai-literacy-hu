@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Literacy voor docenten – HU</title>
+<link rel="icon" type="image/svg+xml" href="assets/hu-logo-small.svg">
+<style>
+:root{
+  --accent:#e6302b; --accent-ink:#fff; --link:#0077a8; --blue:#00a1e1; --bg:#fff; --ink:#1d1d1b; --muted:#6f6f6e; --line:#dadada; --soft:#f2f2f2; --red-tint:#fde7e6; --blue-tint:#e3f5fc; --card-shadow:0 2px 10px rgba(0,0,0,.12); --r:10px;
+  --flag-bg:#fff1c9; --flag-ink:#6b4a00; --todo-bg:#e3f5fc; --todo-ink:#00507a;
+  --side:300px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#14171f;--ink:#e8eaf0;--muted:#a1a8b8;--line:#2a2f3c;--soft:#1c212c;--accent:#ff6a63;--accent-ink:#1a0504;--flag-bg:#4a3b0a;--flag-ink:#ffe39a;--todo-bg:#0f3a50;--todo-ink:#bfe8fb}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 Arial,"Helvetica Neue",Helvetica,sans-serif}
+h1,h2,h3,.ui,button,nav,summary{font-family:Arial,"Helvetica Neue",Helvetica,sans-serif}
+h1,h2,h3{font-weight:800;letter-spacing:-.01em}
+a{color:var(--link)}
+.layout{display:grid;grid-template-columns:var(--side) 1fr;min-height:100vh}
+aside{border-right:1px solid var(--line);background:var(--soft);padding:20px 0;position:sticky;top:0;height:100vh;overflow:auto}
+aside .brand{padding:0 20px 14px;font:800 15px/1.3 Arial,"Helvetica Neue",Helvetica,sans-serif}
+aside .brand small{display:block;font-weight:400;color:var(--muted)}
+.nav-sec{padding:14px 20px 4px;font:600 11px/1.2 Arial,"Helvetica Neue",Helvetica,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+nav a{display:flex;gap:10px;align-items:flex-start;padding:8px 20px;text-decoration:none;color:var(--ink);font:14px/1.35 Arial,"Helvetica Neue",Helvetica,sans-serif;border-left:3px solid transparent}
+nav a:hover{background:color-mix(in srgb,var(--accent) 8%,transparent)}
+nav a.on{border-left-color:transparent;background:var(--red-tint);font-weight:700}
+nav a .num{flex:none;width:22px;height:22px;border-radius:50%;border:1.5px solid var(--muted);display:grid;place-items:center;font-size:11px}
+nav a.done .num{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+nav a .t{flex:1}
+.badge{flex:none;font-size:11px;background:var(--flag-bg);color:var(--flag-ink);border-radius:10px;padding:1px 7px}
+main{min-width:0}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 24px;border-bottom:1px solid var(--line);font:13px Arial,"Helvetica Neue",Helvetica,sans-serif;position:sticky;top:0;background:var(--bg);z-index:5}
+.topbar label{display:flex;gap:6px;align-items:center;cursor:pointer;color:var(--muted)}
+.menu-btn{display:none}
+.progress{height:3px;background:var(--line)}.progress i{display:block;height:100%;background:var(--accent);width:0}
+.wrap{max-width:760px;margin:0 auto;padding:40px 24px 80px}
+h1{font-size:2.1rem;line-height:1.2;margin:.2em 0 .6em}
+h2{font-size:1.5rem;line-height:1.3;margin:2.2em 0 .5em}
+h3{font-size:1.15rem;margin:1.6em 0 .4em}
+.eyebrow{color:var(--accent)!important;font:600 12px Arial,"Helvetica Neue",Helvetica,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+figure{margin:1.6em 0}figure img,.quote img{max-width:100%;height:auto;border-radius:8px;display:block}
+figcaption{font:13px/1.5 Arial,"Helvetica Neue",Helvetica,sans-serif;color:var(--muted);margin-top:8px}
+.statement{margin:2em 0;padding:22px 28px;background:var(--accent);color:#fff;font-weight:700;font-size:1.2rem;border-radius:var(--r)}.statement a{color:#fff}
+.callout{margin:2em 0;padding:4px 24px 12px;background:var(--blue-tint);border-radius:var(--r)}
+.quote{display:flex;gap:18px;align-items:center;margin:2em 0}.quote img{width:110px;border-radius:50%;flex:none}
+.quote blockquote{margin:0;font-style:italic}
+.embed{position:relative;aspect-ratio:16/9;margin:1.6em 0;border-radius:8px;overflow:hidden;background:#000}
+.embed iframe,.kaltura iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.kaltura{position:relative;aspect-ratio:16/9;margin:1.6em 0;border-radius:8px;overflow:hidden;background:#000}
+.accordion{margin:1.4em 0;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:var(--card-shadow)}
+details{border-bottom:1px solid var(--line)}details:last-child{border-bottom:0}
+summary{cursor:pointer;padding:14px 18px;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::after{content:"+";font-size:1.3em;line-height:1;color:var(--accent)}details[open] summary::after{content:"–"}
+summary::-webkit-details-marker{display:none}
+details[open] summary{background:var(--red-tint)}
+details>*:not(summary){padding:0 18px}details>*:last-child{padding-bottom:16px}
+.buttons{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:1.4em 0}
+.buttons>div{border:1px solid var(--line);border-radius:var(--r);padding:16px;box-shadow:var(--card-shadow)}
+a.btn{display:inline-block;margin-top:6px;padding:8px 16px;border-radius:6px;background:var(--accent);color:var(--accent-ink);text-decoration:none;font:600 14px Arial,"Helvetica Neue",Helvetica,sans-serif}
+.tablist{display:flex;flex-wrap:wrap;gap:4px;border-bottom:2px solid var(--line)}
+.tablist button{border:0;background:none;padding:10px 14px;font:600 14px Arial,"Helvetica Neue",Helvetica,sans-serif;color:var(--muted);cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px}
+.tablist button[aria-selected=true]{color:var(--accent);border-bottom-color:var(--accent)}
+.tabs .pane{display:none;padding:12px 0}.tabs .pane.on{display:block}
+.process{display:grid;gap:14px;margin:1.6em 0}
+.step{border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--card-shadow);padding:6px 22px 12px}
+.step-n{font:700 12px Arial,"Helvetica Neue",Helvetica,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin-top:14px}
+.sorting{border:1px solid var(--line);border-radius:8px;padding:20px;margin:1.6em 0;background:var(--soft)}
+.sort-card{font:600 1.1rem/1.4 Arial,"Helvetica Neue",Helvetica,sans-serif;padding:20px;background:var(--bg);border-radius:8px;border:1px solid var(--line);min-height:84px}
+.sort-actions{display:flex;gap:10px;margin:14px 0}
+.sort-actions button,.nav-btns a,.nav-btns button,.start{font:600 15px Arial,"Helvetica Neue",Helvetica,sans-serif;padding:10px 18px;border-radius:6px;border:1px solid var(--accent);background:var(--bg);color:var(--accent);cursor:pointer;text-decoration:none}
+.sort-actions button{flex:1}
+.sort-fb{font:14px/1.5 Arial,"Helvetica Neue",Helvetica,sans-serif;min-height:1.5em}
+.nav-btns{display:flex;justify-content:space-between;margin-top:56px;gap:12px}
+.nav-btns .primary,.start{background:var(--accent);color:var(--accent-ink)}
+.start{display:inline-block;margin:8px 0 24px;padding:12px 28px;font-size:16px;letter-spacing:.03em}
+.hero{padding:56px 24px;background:var(--accent);color:#fff}
+.hero .wrap-in{max-width:760px;margin:0 auto}.hero h1{margin:0 0 .4em;font-size:2.4rem;color:#fff}.hero .start{background:#fff;color:var(--ink);border-color:#fff}
+.chapters{list-style:none;padding:0;margin:0 0 12px}.chapters li a{display:flex;gap:12px;align-items:center;padding:12px 4px;border-bottom:1px solid var(--line);text-decoration:none;color:var(--ink);font:16px Arial,"Helvetica Neue",Helvetica,sans-serif}
+.chapters .num{width:28px;height:28px;border-radius:50%;background:var(--soft);display:grid;place-items:center;font-size:13px;flex:none}
+.sec{color:var(--accent)!important;font:600 12px Arial,"Helvetica Neue",Helvetica,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:28px 0 4px}
+.attribution{margin-top:48px;padding:18px 20px;border:1px solid var(--line);border-radius:8px;background:var(--soft);font:14px/1.55 Arial,"Helvetica Neue",Helvetica,sans-serif}
+.raw{border:2px dashed var(--todo-ink);padding:10px;border-radius:6px}
+/* HU-markeringen */
+mark{background:none;color:inherit}
+body.show-flags mark.flag{background:var(--flag-bg);color:var(--flag-ink);border-radius:3px;padding:0 3px}
+body.show-flags mark.todo{background:var(--todo-bg);color:var(--todo-ink);border-radius:3px;padding:0 3px;font-weight:600}
+body.show-flags a.flag-link{outline:2px solid var(--flag-bg);outline-offset:2px;border-radius:2px}
+body:not(.show-flags) .badge{display:none!important}
+@media (max-width:860px){
+  .layout{grid-template-columns:1fr}
+  aside{position:fixed;inset:0 20% 0 0;z-index:20;height:100vh;transform:translateX(-100%);transition:transform .2s;box-shadow:2px 0 12px #0004}
+  body.menu aside{transform:none}.menu-btn{display:inline-block}
+  .quote{flex-direction:column;align-items:flex-start}
+}
+@media print{aside,.topbar,.nav-btns{display:none}.layout{display:block}article[hidden]{display:block!important}}
+
+/* logo */
+.brand a.logo-chip{display:block;background:#fff;padding:10px 12px;border-radius:var(--r);margin-bottom:12px;box-shadow:var(--card-shadow)}
+.brand img{display:block;height:auto;max-width:100%}
+.logoband{background:#fff;border-bottom:1px solid var(--line);padding:18px 24px}.logoband .wrap-in{max-width:760px;margin:0 auto}.logoband img{height:auto;display:block}
+.hero{position:relative;overflow:hidden}.hero .wrap-in{position:relative;z-index:1}
+.kicker{font:700 13px Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase;opacity:.9;margin-bottom:10px}
+.lead{font-size:1.1rem;margin:0 0 20px;opacity:.95}
+.orb{position:absolute;border-radius:50%;background:rgba(255,255,255,.1)}.o1{width:360px;height:360px;right:-90px;top:-120px}.o2{width:200px;height:200px;right:180px;bottom:-110px}
+/* animaties */
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes pop{0%{transform:scale(.6)}60%{transform:scale(1.25)}100%{transform:scale(1)}}
+@keyframes floaty{0%,100%{transform:translate(0,0)}50%{transform:translate(-14px,16px)}}
+.hero .kicker,.hero h1,.hero .lead,.hero .start{opacity:0;animation:fadeUp 1.1s cubic-bezier(.25,.6,.25,1) forwards}
+.hero h1{animation-delay:.25s}.hero .lead{animation-delay:.5s}.hero .start{animation-delay:.75s}
+.logoband img{animation:fadeIn 1.4s both}
+.orb{animation:floaty 14s ease-in-out infinite}.o2{animation-duration:18s;animation-delay:-4s}
+article:not([hidden]) > header .eyebrow,article:not([hidden]) > header h1{animation:fadeUp 1s cubic-bezier(.25,.6,.25,1) both}
+article:not([hidden]) > header h1{animation-delay:.2s}
+.rv{opacity:0;transform:translateY(22px);transition:opacity 1.2s cubic-bezier(.25,.6,.25,1),transform 1.2s cubic-bezier(.25,.6,.25,1)}
+.rv.in{opacity:1;transform:none}
+figure.rv img{transition:transform 2s cubic-bezier(.25,.6,.25,1);transform:scale(1.07)}figure.rv.in img{transform:none}
+figure{overflow:hidden;border-radius:var(--r)}
+.quote.rv{transform:translateX(-26px)}.quote.rv.in{transform:none}
+.statement.rv{transform:translateY(22px) scale(.98)}.statement.rv.in{transform:none}
+details>*:not(summary){animation:fadeIn .6s both}
+details summary::after{transition:transform .45s}details[open] summary::after{transform:rotate(180deg)}
+details summary:hover{background:var(--soft)}
+.accordion,.buttons>div,.step,.chapters li a,a.btn,.start,.nav-btns a,.sort-actions button,.tablist button,details summary,nav a{transition:transform .35s,box-shadow .35s,background .35s,color .35s,border-color .35s,padding .35s}
+.buttons>div:hover,.step:hover{transform:translateY(-3px);box-shadow:0 6px 18px rgba(0,0,0,.16)}
+a.btn:hover,.start:hover,.nav-btns a:hover,.sort-actions button:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.tabs .pane.on{animation:fadeUp .6s both}
+.sort-card{animation:fadeUp .6s both}
+nav a:hover{padding-left:24px}
+nav a.done .num{animation:pop .8s}
+.progress i{transition:width 1.4s cubic-bezier(.2,.7,.2,1)}
+.chapters li.rv{transition-delay:calc(var(--i,0)*90ms)}
+.chapters li a:hover{background:var(--red-tint);padding-left:12px}
+.topbar{transition:box-shadow .2s}.topbar.stuck{box-shadow:0 2px 10px rgba(0,0,0,.1)}
+#lessons .wrap{animation:fadeIn .7s both}
+.cont-wrap{display:flex;justify-content:center;margin:44px 0 8px}
+.cont-btn{font:700 15px Arial,sans-serif;letter-spacing:.06em;text-transform:uppercase;padding:14px 34px;border-radius:999px;border:0;background:var(--accent);color:#fff;cursor:pointer;box-shadow:var(--card-shadow);transition:transform .35s,box-shadow .35s}
+.cont-btn:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,.22)}
+.cont-btn span{display:inline-block;margin-left:8px;animation:bob 1.4s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+.seg[hidden]{display:none}
+.seg.enter{animation:fadeUp 1s cubic-bezier(.25,.6,.25,1) both}
+.showall{font:13px Arial,sans-serif;color:var(--muted);background:none;border:0;cursor:pointer;text-decoration:underline;padding:0;margin:0 0 8px}
+.nav-btns[hidden]{display:none}
+.to-top{position:fixed;right:20px;bottom:20px;width:44px;height:44px;border-radius:50%;border:0;background:var(--accent);color:#fff;font-size:20px;cursor:pointer;box-shadow:var(--card-shadow);opacity:0;transform:translateY(14px);pointer-events:none;transition:.25s}
+.to-top.show{opacity:1;transform:none;pointer-events:auto}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv,.rv img{opacity:1!important;transform:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body class="show-flags">
+<div class="layout">
+<aside>
+  <div class="brand"><a href="#/" class="logo-chip"><img src="assets/hu-logo.svg" alt="Hogeschool Utrecht" width="150"></a>AI Literacy voor docenten<small>Conceptversie</small></div>
+  <nav><a href="#/" data-n="0"><span class="num">⌂</span><span class="t">Overzicht</span></a>
+{{NAV}}
+  </nav>
+</aside>
+<main>
+  <div class="topbar ui"><button class="menu-btn" id="menuBtn" type="button" style="border:1px solid var(--line);background:none;color:var(--ink);padding:6px 10px;border-radius:6px">☰ Menu</button>
+    <span id="crumb" style="color:var(--muted)"></span>
+    <label><input type="checkbox" id="flagToggle" checked> Markeer HU-aanpassingen <span id="flagCount" class="badge"></span></label></div>
+  <div class="progress"><i id="bar"></i></div>
+
+  <section id="overview" hidden>
+    <div class="logoband"><div class="wrap-in"><img src="assets/hu-logo.svg" alt="Hogeschool Utrecht" width="190"></div></div>
+    <div class="hero"><div class="wrap-in">
+      <div class="kicker">E-learning voor docenten</div>
+      <h1>AI Literacy voor docenten</h1>
+      <p class="lead">Ongeveer één uur · 11 hoofdstukken · los van elkaar te volgen</p>
+      <a class="start" href="#/1">START</a>
+    </div><span class="orb o1"></span><span class="orb o2"></span></div>
+    <div class="wrap">
+      <p>AI dringt steeds verder door in de samenleving, ons werk en het onderwijs. Veel taken die kort geleden nog mensenwerk waren, kunnen nu deels of volledig door AI worden uitgevoerd of ondersteund. Sommige docenten en andere medewerkers van de HU experimenteren er al mee, en voor veel studenten is het inmiddels een vanzelfsprekend onderdeel van het studeren.</p>
+      <p>In deze e-learning leer je hoe de HU met deze ontwikkeling omgaat, wat de belangrijkste kansen en risico’s zijn, en hoe je generatieve AI op een bewuste manier kunt inzetten in het onderwijs en werk. Het biedt een algemene basis voor docenten en andere medewerkers die de werking en mogelijkheden van AI willen verkennen. Daarnaast helpt de e-learning om keuzes rond het wel of niet inzetten van AI in het onderwijs scherper te onderbouwen.</p>
+      <h3>Na het doorlopen van deze e-learning kun je:</h3>
+      <ul>
+        <li>In de basis uitleggen hoe generatieve AI en Large Language Models werken en wat de belangrijkste beperkingen zijn</li>
+        <li>Typische risico’s herkennen, zoals hallucinaties, bias en verouderde kennis</li>
+        <li>Inschatten wat de impact is op cursusontwerp, toetsing en begeleiding</li>
+        <li>Het <mark class="todo">[HU invullen: HU-beleidskader]</mark> toepassen op keuzes in je eigen onderwijs of werk</li>
+        <li>Praktisch aan de slag met <mark class="todo">[HU invullen: naam HU AI-omgeving]</mark>, de eigen veilige AI-omgeving van de HU</li>
+      </ul>
+      <p>Klik hieronder op het eerste hoofdstuk om te starten. Het afronden van de hele e-learning kost ongeveer één uur. Alle hoofdstukken kunnen los van elkaar worden doorlopen.</p>
+      <p><mark class="todo">[HU invullen: studentenversie en/of Engelstalige versie, indien beschikbaar. Origineel UvA: <a href="https://rise.articulate.com/share/5hgYw3uBFe6y7WiSiFUJ9HtrzIUw8cxp" target="_blank" rel="noopener">studentenversie</a> en <a href="https://share.articulate.com/-sIGgeCRhGpZ13DwjDKff" target="_blank" rel="noopener">Engelstalige versie</a>]</mark></p>
+      <p>Vragen over de inhoud van deze e-learning? <mark class="todo">[HU invullen: contactpersoon/e-mailadres]</mark></p>
+      {{OVERVIEW_LIST}}
+      <div class="attribution">
+        <strong>Bronvermelding en licentie.</strong> Deze e-learning is een bewerking van <a href="https://share.articulate.com/svX7iZbENb4ocjD2biC6-#/" target="_blank" rel="noopener">“AI Literacy voor docenten”</a>, ontwikkeld door TLC Central &amp; TLC Science van de Universiteit van Amsterdam, en gebruikt met toestemming van de makers. Het origineel is gepubliceerd onder <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.nl" target="_blank" rel="noopener">Creative Commons BY-NC-SA 4.0</a>; deze bewerking wordt onder dezelfde licentie gedeeld. Aanpassingen voor de Hogeschool Utrecht zijn aangebracht in tekst, verwijzingen en voorbeelden. <mark class="todo">[HU invullen: namen/eenheid van de bewerkers en datum]</mark>
+      </div>
+    </div>
+  </section>
+
+  <section id="lessons"><div class="wrap">
+{{ARTICLES}}
+    <div class="nav-btns ui" id="navBtns"><a id="prev" href="#/">← Vorige</a><a id="next" class="primary" href="#/2">Volgende →</a></div>
+  </div></section>
+</main>
+</div>
+<script>
+(function(){
+  var N=11, $=function(s,r){return (r||document).querySelector(s)}, $$=function(s,r){return [].slice.call((r||document).querySelectorAll(s))};
+  var titles={}; $$('nav a[data-n]').forEach(function(a){titles[a.dataset.n]=$('.t',a).textContent});
+  function store(k,v){try{if(v===undefined)return JSON.parse(localStorage.getItem(k));localStorage.setItem(k,JSON.stringify(v))}catch(e){return null}}
+  var done=store('hu-done2')||{};
+  // Kaltura-video's
+  $$('.kaltura').forEach(function(d){
+    var u='https://api.eu.kaltura.com/p/120/sp/12000/embedIframeJs/uiconf_id/23449960/partner_id/120?iframeembed=true&playerId=kaltura_player&entry_id='+d.dataset.entry+'&flashvars[streamerType]=auto&flashvars[localizationCode]=en_US&flashvars[sideBarContainer.plugin]=true&flashvars[sideBarContainer.position]=left&flashvars[sideBarContainer.clickToClose]=true&flashvars[chapters.plugin]=true&flashvars[chapters.layout]=vertical&flashvars[chapters.thumbnailRotator]=false&flashvars[streamSelector.plugin]=true&flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&flashvars[dualScreen.plugin]=true&flashvars[hotspots.plugin]=1&flashvars[Kaltura.addCrossoriginToIframe]=true&&wid='+d.dataset.wid;
+    d.innerHTML='<iframe loading="lazy" allowfullscreen title="'+d.dataset.title+'" src="'+u+'"></iframe>';
+  });
+  // tabs
+  $$('.tabs').forEach(function(t){
+    var b=$$('.tablist button',t), p=$$('.pane',t);
+    function sel(i){b.forEach(function(x,j){x.setAttribute('aria-selected',j==i);p[j].classList.toggle('on',j==i)})}
+    b.forEach(function(x,i){x.onclick=function(){sel(i)}}); sel(0);
+  });
+  // sorteeroefening
+  $$('.sorting').forEach(function(s){
+    var items=JSON.parse(s.dataset.items), i=0, ok=0, card=$('.sort-card',s), fb=$('.sort-fb',s), btns=$$('.sort-actions button',s);
+    function show(){ if(i>=items.length){card.textContent='Klaar! '+ok+' van '+items.length+' goed.';btns.forEach(function(b){b.disabled=true});fb.textContent='';return}
+      card.textContent=items[i][0]; }
+    btns.forEach(function(b){b.onclick=function(){var good=b.dataset.a===items[i][1]; if(good)ok++;
+      fb.textContent=(good?'✔ Juist. ':'✘ Niet helemaal. ')+'Dit is '+(items[i][1]==='goed'?'goede':'onnodige')+' frictie.'; i++; setTimeout(show,900)}});
+    show();
+  });
+  // markeringen
+  var ft=$('#flagToggle'); var on=store('hu-flags'); if(on===false){ft.checked=false}
+  function applyFlags(){document.body.classList.toggle('show-flags',ft.checked); store('hu-flags',ft.checked)}
+  ft.onchange=applyFlags; applyFlags();
+  var total=0; $$('nav a[data-n]').forEach(function(a){var n=a.dataset.n; if(n==0)return; var c=$$('article[data-n="'+n+'"] mark.flag, article[data-n="'+n+'"] mark.todo, article[data-n="'+n+'"] a.flag-link').length; total+=c; var bd=$('.badge',a); if(c){bd.textContent=c; bd.hidden=false; bd.title=c+' HU-aandachtspunten'}});
+  $('#flagCount').textContent=total+' punten';
+  // routing
+  function route(){
+    var m=(location.hash.match(/^#\/(\d+)/)||[])[1], n=m?Math.min(+m,N):0;
+    $('#overview').hidden=n!==0; $('#lessons').hidden=n===0;
+    $$('article').forEach(function(a){a.hidden=(+a.dataset.n)!==n});
+    $$('nav a').forEach(function(a){a.classList.toggle('on',+a.dataset.n===n)});
+    if(n){ resetSegs(n); $('#prev').href=n>1?'#/'+(n-1):'#/'; $('#prev').textContent=n>1?'← Vorige':'← Overzicht';
+      var nx=$('#next'); if(n<N){nx.href='#/'+(n+1);nx.textContent='Volgende →';}else{nx.href='#/';nx.textContent='Terug naar overzicht';}
+      $('#crumb').textContent=n+'. '+titles[n]; }
+    else $('#crumb').textContent='Overzicht';
+    refreshNav();
+    document.body.classList.remove('menu'); window.scrollTo(0,0);
+    document.title=(n?titles[n]+' – ':'')+'AI Literacy voor docenten – HU';
+  }
+
+
+  // ---- "Doorgaan"-knoppen (zoals in het origineel) ----
+  var segs={}; // n -> {list:[seg], shown:k}
+  $$('article').forEach(function(a){
+    var n=+a.dataset.n, kids=[].slice.call(a.children).filter(function(c){return c.tagName!=='HEADER'});
+    var groups=[[]]; kids.forEach(function(c){ if(c.classList.contains('cont')){groups.push([]);c.parentNode.removeChild(c)} else groups[groups.length-1].push(c)});
+    groups=groups.filter(function(g){return g.length});
+    var list=groups.map(function(g,i){var d=document.createElement('div'); d.className='seg'; g[0].parentNode.insertBefore(d,g[0]); g.forEach(function(c){d.appendChild(c)}); return d});
+    segs[n]={list:list,shown:0};
+    list.forEach(function(d,i){ if(i<list.length-1){ var w=document.createElement('div'); w.className='cont-wrap'; w.innerHTML='<button class="cont-btn" type="button">Doorgaan <span>↓</span></button>'; d.appendChild(w);
+      w.firstChild.onclick=function(){ w.style.display='none'; showSeg(n,i+1,true); } } });
+    if(list.length>1){ var sa=document.createElement('button'); sa.type='button'; sa.className='showall'; sa.textContent='Toon hele hoofdstuk in één keer'; sa.onclick=function(){ for(var i=0;i<list.length;i++)showSeg(n,i,false); $$('.cont-wrap',a).forEach(function(w){w.style.display='none'}); sa.remove(); }; a.querySelector('header').appendChild(sa); }
+  });
+  function finish(n){ done[n]=1; store('hu-done2',done); refreshNav(); }
+  function showSeg(n,i,scroll){
+    var S=segs[n]; var d=S.list[i]; if(!d)return; d.hidden=false; d.classList.add('enter'); S.shown=Math.max(S.shown,i+1);
+    armReveal();
+    if(scroll&&!reduce){ setTimeout(function(){ var y=d.getBoundingClientRect().top+window.scrollY-70; window.scrollTo({top:y,behavior:'smooth'}) },250); }
+    if(S.shown>=S.list.length){ $('#navBtns').hidden=false; finish(n); }
+  }
+  function resetSegs(n){
+    var S=segs[n]; if(!S)return;
+    var seen=!!done[n]; S.shown=0;
+    S.list.forEach(function(d,i){ d.hidden=!(seen||i===0); d.classList.remove('enter'); $$('.cont-wrap',d).forEach(function(w){w.style.display=(seen?'none':'')}); });
+    var sa=$('article[data-n="'+n+'"] .showall'); if(sa&&seen)sa.style.display='none'; else if(sa)sa.style.display='';
+    $('#navBtns').hidden=!(seen||S.list.length<=1);
+    if(S.list.length<=1)finish(n);
+  }
+  function refreshNav(){
+    $$('nav a[data-n]').forEach(function(a){a.classList.toggle('done',!!done[a.dataset.n]&&a.dataset.n!=0)});
+    $('#bar').style.width=(Object.keys(done).length/N*100)+'%';
+  }
+  // ---- animaties ----
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var io=('IntersectionObserver' in window&&!reduce)?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15,rootMargin:'0px 0px -10% 0px'}):null;
+  function armReveal(){
+    $$('.rv').forEach(function(x){x.classList.remove('rv');x.classList.remove('in')});
+    $$('article:not([hidden]) .seg:not([hidden]) > :not(.cont-wrap), #overview .wrap > :not(.chapters)').forEach(function(x){
+      if(x.classList.contains('kaltura'))return; x.classList.add('rv'); if(io)io.observe(x); else x.classList.add('in'); });
+    $$('#overview .chapters li').forEach(function(li,i){li.style.setProperty('--i',i);li.classList.add('rv');if(io)io.observe(li);else li.classList.add('in')});
+  }
+  // vloeiend openen/sluiten van accordeons
+  $$('details').forEach(function(d){
+    var sm=d.querySelector('summary'); if(!sm||reduce)return;
+    sm.addEventListener('click',function(ev){
+      ev.preventDefault(); d.style.overflow='hidden';
+      if(d.open){ var h=d.offsetHeight, hs=sm.offsetHeight;
+        var a=d.animate({height:[h+'px',hs+'px']},{duration:480,easing:'ease-in-out'});
+        a.onfinish=function(){d.open=false;d.style.overflow=''};
+      } else { var h0=d.offsetHeight; d.open=true; var h1=d.offsetHeight;
+        var b=d.animate({height:[h0+'px',h1+'px']},{duration:560,easing:'ease-in-out'}); b.onfinish=function(){d.style.overflow=''}; }
+    });
+  });
+  // terug-naar-boven en topbalk-schaduw
+  var tt=document.createElement('button'); tt.className='to-top'; tt.type='button'; tt.setAttribute('aria-label','Naar boven'); tt.textContent='↑'; document.body.appendChild(tt);
+  tt.onclick=function(){window.scrollTo({top:0,behavior:reduce?'auto':'smooth'})};
+  window.addEventListener('scroll',function(){var y=window.scrollY; tt.classList.toggle('show',y>600); $('.topbar').classList.toggle('stuck',y>4)},{passive:true});
+  window.addEventListener('hashchange',function(){route();armReveal()}); route(); armReveal();
+  $('#menuBtn').onclick=function(){document.body.classList.toggle('menu')};
+})();
+</script>
+</body>
+</html>

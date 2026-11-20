@@ -1,0 +1,156 @@
+[
+ [
+  "Overzicht + 1, 3, 9",
+  "“UvA AI Chat”: de eigen, veilige AI-omgeving van de UvA (komt in vrijwel elk hoofdstuk terug).",
+  "Microsoft Copilot met HU-account (Enterprise Data Protection) is volgens HU-bronnen de aanbevolen tool voor studenten en medewerkers. Let op: dit is een commerciële tool met afspraken, geen eigen HU-omgeving. Pas de formulering aan (“de door de HU aanbevolen AI-tool”).",
+  "Trajectum: “Gratis AI premium gebruiken aan de HU”; HU-bibliotheek: Verantwoord AI toepassen",
+  "Advies gevonden – controleren"
+ ],
+ [
+  "1",
+  "Eigenschappen van UvA AI Chat: geanonimiseerde verwerking, geen training van modellen, docenten kunnen niet-gedeelde chats niet inzien, UvA bepaalt zelf de modellen.",
+  "Schrijf niet over wat voor Copilot niet is vastgesteld. Laat ICT/privacy (FG) bevestigen wat voor Copilot met HU-account geldt (dataverwerking, training, inzage). Houd ook rekening met het SURF-advies over Copilot (2024) en het besluit van de HU om daar niet in mee te gaan.",
+  "Trajectum: “SURF raadt scholen (óók de HU) af om Copilot te gebruiken” en “HU legt negatief advies SURF… naast zich neer”",
+  "Controleren bij ICT/privacy-functionaris"
+ ],
+ [
+  "1",
+  "“Beleidskader en richtlijnen GenAI in het onderwijs” van de UvA (geldt sinds 2025-2026).",
+  "Verwijs naar de HU-documenten die er zijn: Handreiking generatieve AI en toetsing (EénHU), HU-toetsbeleid (mei 2025) en de Handreiking verantwoord AI-gebruik (voor studenten). Een apart, vastgesteld HU-beleidskader voor GenAI in het onderwijs heb ik niet gevonden.",
+  "husite.nl/toetsing-nieuw/handreiking-generatieve-ai-en-toetsing; HU-toetsbeleid toelichting en onderbouwing (pdf, mei 2025)",
+  "Beleidskader zelf: Nog aan te leveren door HU"
+ ],
+ [
+  "1",
+  "Uitgangspunten UvA: Human in the lead, transparantie, kritische houding, geen gevoelige gegevens delen.",
+  "Deze principes zijn algemeen en kunnen grotendeels blijven. Leg ze naast de HU-handreiking. Voeg toe dat de HU-handreiking aangeeft dat scores van AI-detectiesoftware niet gebruikt mogen worden, en dat bij vermoeden van AI-gebruik eerst een gesprek met de student plaatsvindt.",
+  "Trajectum: “De AI-scanner levert voorlopig alleen gedoe op”; Richtlijn onregelmatigheden CvE-HU 2024 (v4.0)",
+  "Advies gevonden – controleren"
+ ],
+ [
+  "1",
+  "Link naar UvA-regels voor verantwoord gebruik ICT-faciliteiten.",
+  "Vervang door HU-informatie over privacy en dataveiligheid, o.a. “Wat zet je wel en niet in ChatGPT” (Kenniswerkplaats Zorgvuldig Data Delen, HU) en de HU-privacypagina.",
+  "hu.nl: wat-zet-je-wel-en-niet-in-chatgpt (pdf); verstandig-gebruik-ai (pdf)",
+  "Advies gevonden – controleren"
+ ],
+ [
+  "1, 9",
+  "Verwijzing naar de e-learning “Wegwijs met UvA AI Chat” en de handleiding op het UvA-platform.",
+  "Verwijs naar een HU-handleiding voor Copilot. Die heb ik niet kunnen vinden.",
+  "–",
+  "Nog aan te leveren door HU"
+ ],
+ [
+  "Overzicht",
+  "Link naar studentenversie en Engelstalige versie van de UvA.",
+  "Voor studenten bestaat bij de HU al een korte training AI-geletterdheid (via de bibliotheek). Eventueel later een eigen studentenversie en Engelse versie maken van deze bewerking. Voor medewerkers is er een zelfscan AI-geletterdheid via de Digital Academy.",
+  "bibliotheek.hu.nl/hulp-en-ondersteuning/ai-toepassen; mijnaigeletterdheid.nl",
+  "Besluit: Nog aan te leveren door HU"
+ ],
+ [
+  "Overzicht, 11",
+  "Contact: ai-tlc@uva.nl / tlc-ai@uva.nl (Living Lab AI, TLC).",
+  "Kies een HU-contactpunt voor inhoudelijke vragen (bij voorkeur een functionele mailbox). Voor vragen over toetsing en AI is de contactpersoon van de HU-handreiking Marlies Ngouateu-Bussemaker (OO&S); vraag eerst of zij als contact vermeld wil worden.",
+  "husite.nl/toetsing-nieuw/handreiking-generatieve-ai-en-toetsing",
+  "Nog aan te leveren door HU"
+ ],
+ [
+  "11",
+  "“Living Lab AI” van het TLC; AI-portaal en AI-pilots van TLC; TLC-artikelen over toetsing en onderwijs met AI.",
+  "Verwijs naar HU-equivalenten: de HU-onderzoeksprojecten CARE (kritische AI-geletterdheid) en KRITIKOS (reflectiechatbot), het HU-toetsingsplatform (husite.nl/toetsing-nieuw) en de AI-pagina’s van de bibliotheek. Een centraal HU-AI-portaal voor docenten heb ik niet gevonden.",
+  "hu.nl/onderzoek/projecten/care-kritische-ai-geletterdheid-in-onderzoek-en-onderwijs; hu.nl/onderzoek/projecten/kritikos-reflecteren-op-ai-gebruik-met-een-digitale-assistent",
+  "Portaal: Nog aan te leveren door HU"
+ ],
+ [
+  "11",
+  "Link naar studentenpagina “AI en je studie” en de fraude- en plagiaatregeling van de UvA.",
+  "Vervang door de HU-studentenpagina over AI (bibliotheek) en de HU-regeling: Richtlijn onregelmatigheden CvE-HU (v4.0, 2024) en de Onderwijs- en examenregeling van de opleiding. Controleer of er een nieuwere versie is.",
+  "HU: richtlijn_onregelmatigheden_cve_hu_2024 (pdf)",
+  "Advies gevonden – controleren"
+ ],
+ [
+  "8",
+  "Links naar TLC-handleidingen over toetsen met AI, mondelinge toetsing en toetsen ontwerpen; UvA-examencommissies.",
+  "Vervang door: HU-Handreiking generatieve AI en toetsing, HU-toetsbeleid en de pagina “Generatieve AI en toetsing” op het HU-toetsingssite. Voor examencommissies: de CvE-HU en de examencommissie van de eigen opleiding.",
+  "husite.nl/toetsing-nieuw/generatieve-ai-en-toetsing",
+  "Advies gevonden – controleren"
+ ],
+ [
+  "3",
+  "Citaat van Merel Pompe, onderwijsadviseur TLC Science.",
+  "Vervang door een citaat van een HU-docent of -adviseur (met toestemming), of verwijder het blok.",
+  "–",
+  "Nog aan te leveren door HU"
+ ],
+ [
+  "3, 4, 5",
+  "Taken met “Test in UvA AI Chat”, UvA-links en een verwijzing naar de update van UvA AI Chat (mei 2026).",
+  "Pas aan naar Copilot (HU-account). Controleer of de voorbeeldprompts en functies zoals bestanden uploaden, delen of persona’s in Copilot beschikbaar zijn. Vervang de update-link door de actuele release-informatie van de HU/Microsoft.",
+  "–",
+  "Functies controleren; link: Nog aan te leveren door HU"
+ ],
+ [
+  "6",
+  "UvA-voorbeelden in tabs: Marketingseminar (FMG), Privaatrecht (FdR), Grote vragen in AI en Data (AUC).",
+  "Vervang door drie voorbeelden van HU-opleidingen of -instituten. Zoek ze via collega’s uit pilots, het CARE-project, de Digital Academy en de opleidingsteams. De structuur (context, aanpak, resultaat) kan blijven.",
+  "–",
+  "Nog aan te leveren door HU"
+ ],
+ [
+  "9",
+  "Persona-voorbeelden: tegen-debatant (AUC), UvA Makerspace-assistent, onderwijsassistent Scheikunde.",
+  "Kies HU-voorbeelden. Het Scheikunde-voorbeeld is vakinhoudelijk en kan als algemeen voorbeeld blijven, mits de bron wordt genoemd. Controleer eerst of Copilot een vergelijkbare functie biedt (instructies/agent) en hoe die werkt binnen de HU-licentie.",
+  "–",
+  "Voorbeelden: Nog aan te leveren door HU; functie: controleren"
+ ],
+ [
+  "10",
+  "Voorbeelden van binnen en buiten de UvA, o.a. AUC en een link naar het profiel van een UvA-docent.",
+  "Vervang de UvA-voorbeelden door HU-voorbeelden. Voorbeelden van buiten de UvA en de HU kunnen blijven.",
+  "–",
+  "Nog aan te leveren door HU"
+ ],
+ [
+  "Alle",
+  "Illustraties met UvA-symbolen (o.a. het UvA-wapen in hoofdstuk 9).",
+  "Vervang of genereer die afbeeldingen opnieuw zonder UvA-symbolen. Gebruik niet het UvA-logo of het UvA-wapen. Sla alle afbeeldingen lokaal op zodat ze niet van de Articulate-server afhangen.",
+  "–",
+  "Uitvoeren: samen met HU-huisstijl"
+ ],
+ [
+  "Alle",
+  "Videoclips (kennisclips Jelle Zuidema, UvA/ILLC) via de Kaltura-server van de UvA.",
+  "Houd ze met bronvermelding aan (zelfde CC-licentie), of vervang door eigen HU-clips. Vraag de makers of de embeds mogen blijven werken. De clips zijn Engelstalig.",
+  "–",
+  "Overleg met makers"
+ ],
+ [
+  "Alle",
+  "Huisstijl.",
+  "Toegepast volgens het artifact “HU Huisstijl”: HU-rood #E6302B, HU-blauw #00A1E1, inkt #1D1D1B, Arial, kaartstijl, en het officiële HU-logo (van team Huisstijl) in de zijbalk en op de startpagina. HuSans voor koppen alleen gebruiken als de lettertypelicentie het toelaat; het lettertype en het logo horen alleen in een privé-repository, niet in een openbare. Lesmateriaal mag volgens de huisstijlregels ook neutraal opgemaakt worden.",
+  "Artifact “HU Huisstijl”; logobestanden van Huisstijl",
+  "Controleren door team Huisstijl (huisstijl@hu.nl)"
+ ],
+ [
+  "Overzicht",
+  "Zin “De HU kiest niet voor een algemeen verbod op GenAI” en de claim dat AI Literacy een professionele competentie is.",
+  "Dit zijn UvA-standpunten die ik als HU-tekst heb laten staan. Laat bevestigen dat ze voor de HU kloppen of herformuleer.",
+  "–",
+  "Controleren"
+ ],
+ [
+  "6",
+  "Sorteeroefening “Goede / onnodige frictie”.",
+  "De antwoordsleutel kon ik niet uit de bron halen en is door mij afgeleid. Vergelijk met het origineel en pas aan.",
+  "UvA-origineel",
+  "Controleren"
+ ],
+ [
+  "Overzicht",
+  "Bronvermelding: bewerkers en datum.",
+  "Vul de naam van de bewerkers (en eenheid) en de datum in. De CC BY-NC-SA-licentie vraagt om vermelding van de bron, een link naar de licentie, aanduiding dat er wijzigingen zijn en delen onder dezelfde licentie.",
+  "creativecommons.org/licenses/by-nc-sa/4.0",
+  "Nog aan te leveren door HU"
+ ]
+]
