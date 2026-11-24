@@ -7,7 +7,7 @@ OUT = 'out'
 RED = '#e6302b'; INK = '#1d1d1b'; MUTED = '#6f6f6e'; LINE = '#dadada'; SOFT = '#f2f2f2'
 REDT = '#fde7e6'; BLUET = '#e3f5fc'; LINK = '#0077a8'
 FONT = 'font-family: Arial, Helvetica, sans-serif;'
-SHADOW = 'box-shadow: 0 2px 10px rgba(0,0,0,0.12);'
+SHADOW = 'border-bottom: 3px solid #c8c8c8;'
 
 # hoofdstukken die meegaan (origineel nummer -> nieuw nummer)
 KEEP = [1, 2, 3, 4, 5, 6, 7, 8, 11]
@@ -147,7 +147,7 @@ def style_inline(root):
         b['style'] = 'margin: 24px 0;'
         del b['class']
         for card in b.find_all('div', recursive=False):
-            card['style'] = f'display: inline-block; vertical-align: top; width: 44%; min-width: 230px; margin: 0 12px 14px 0; padding: 16px; border: 1px solid {LINE}; border-radius: 10px; {SHADOW} box-sizing: border-box;'
+            card['style'] = f'display: inline-block; vertical-align: top; width: 42%; min-width: 220px; margin: 0 12px 14px 0; padding: 16px; border: 1px solid {LINE}; border-radius: 10px; {SHADOW}'
     for a in root.select('a.btn'):
         del a['class']
         a['style'] = f'display: inline-block; margin-top: 6px; padding: 8px 16px; border-radius: 6px; background-color: {RED}; color: #ffffff; text-decoration: none; font-weight: bold; {FONT} font-size: 14px;'
@@ -160,7 +160,8 @@ def style_inline(root):
         st['style'] = f'margin: 0 0 14px; padding: 6px 22px 12px; border: 1px solid {LINE}; border-radius: 10px; {SHADOW} border-top: 4px solid {RED};'
         del st['class']
     for sn in root.select('.step-n'):
-        sn['style'] = f'{FONT} font-size: 12px; font-weight: bold; letter-spacing: 0.06em; text-transform: uppercase; color: {RED}; margin-top: 14px;'
+        sn['style'] = f'{FONT} font-size: 12px; font-weight: bold; color: {RED}; margin-top: 14px;'
+        sn.string = sn.get_text().upper()
         del sn['class']
     for h in root.find_all(['h2']):
         h['style'] = f'{FONT} font-weight: bold; color: {INK}; margin-top: 36px;'
@@ -196,7 +197,7 @@ def sorting_to_text(srt):
 
 def banner(eyebrow, title, sub=None):
     html = f'''<div style="background-color: {RED}; color: #ffffff; padding: 28px 30px 26px; border-radius: 12px; margin: 0 0 28px;">
-<p style="{FONT} font-size: 12px; font-weight: bold; letter-spacing: 0.1em; text-transform: uppercase; margin: 0 0 8px; color: #ffffff;">{eyebrow}</p>
+<p style="{FONT} font-size: 12px; font-weight: bold; margin: 0 0 8px; color: #ffffff;">{eyebrow.upper()}</p>
 <h2 style="{FONT} font-size: 1.9em; line-height: 1.2; font-weight: bold; margin: 0; color: #ffffff;">{title}</h2>
 {f'<p style="margin: 10px 0 0; color: #ffffff; font-size: 1.05em;">{sub}</p>' if sub else ''}
 </div>'''
@@ -247,7 +248,7 @@ def task_box(n):
     title, steps = TASKS[n]
     lis = ''.join(f'<li style="margin: 6px 0;">{s}</li>' for s in steps)
     return (f'<div style="margin: 40px 0 8px; padding: 18px 24px 16px; border: 2px solid {RED}; border-radius: 12px; background-color: {REDT};">'
-            f'<p style="{FONT} font-size: 12px; font-weight: bold; letter-spacing: 0.08em; text-transform: uppercase; color: {RED}; margin: 0 0 4px;">Opdracht · ca. 10 minuten · niet inleveren</p>'
+            f'<p style="{FONT} font-size: 12px; font-weight: bold; color: {RED}; margin: 0 0 4px;">OPDRACHT · CA. 10 MINUTEN · NIET INLEVEREN</p>'
             f'<h3 style="{FONT} font-weight: bold; margin: 0 0 8px; color: {INK};">{title}</h3>'
             f'<ol style="margin: 0; padding-left: 22px;">{lis}</ol></div>')
 
@@ -262,6 +263,9 @@ for o in KEEP:
     if srt:
         box, sorting_items = sorting_to_text(srt)
         srt.replace_with(box)
+    for st in art.select('.statement'):
+        if 'Sleep de voorbeelden' in st.get_text():
+            st.find('p').string = 'Wat beschouw jij als goede of onnodige frictie? Probeer het hieronder.'
     art = style_inline(art)
     for nav in art.select('.nav-btns'):
         nav.decompose()
@@ -292,17 +296,17 @@ sec = None
 for pg in pages:
     s = SECTION[pg['orig']]
     if s != sec:
-        start_items += f'<p style="{FONT} font-size: 12px; font-weight: bold; letter-spacing: 0.06em; text-transform: uppercase; color: {RED}; margin: 26px 0 4px;">{s}</p>'
+        start_items += f'<p style="{FONT} font-size: 12px; font-weight: bold; color: {RED}; margin: 26px 0 4px;">{s.upper()}</p>'
         sec = s
     start_items += (f'<p style="margin: 0; padding: 10px 4px; border-bottom: 1px solid {LINE};">'
                     f'<span style="display: inline-block; width: 28px; height: 28px; line-height: 28px; text-align: center; border-radius: 50%; background-color: {SOFT}; font-size: 13px; margin-right: 12px;">{pg["n"]}</span>'
                     f'<a style="color: {INK}; text-decoration: none;" href="{{{{PAGE:{pg["n"]}}}}}">{pg["title"][len(str(pg["n"]))+2:]}</a></p>')
 hero = f'''<div style="background-color: #ffffff; border: 1px solid {LINE}; border-radius: 12px 12px 0 0; padding: 18px 24px;"><img style="width: 190px; height: auto; display: block;" src="{{{{LOGO}}}}" alt="Hogeschool Utrecht"></div>
 <div style="background-color: {RED}; color: #ffffff; padding: 44px 30px 34px; border-radius: 0 0 12px 12px; margin-bottom: 32px;">
-<p style="{FONT} font-size: 13px; font-weight: bold; letter-spacing: 0.1em; text-transform: uppercase; margin: 0 0 10px; color: #ffffff;">Zelfstudie vooraf · e-learning voor docenten</p>
+<p style="{FONT} font-size: 13px; font-weight: bold; margin: 0 0 10px; color: #ffffff;">ZELFSTUDIE VOORAF · E-LEARNING VOOR DOCENTEN</p>
 <h2 style="{FONT} font-size: 2.3em; line-height: 1.15; font-weight: bold; margin: 0 0 12px; color: #ffffff;">AI Literacy voor docenten</h2>
 <p style="font-size: 1.1em; margin: 0 0 22px; color: #ffffff;">Ongeveer één uur · {TOTAL} hoofdstukken · los van elkaar te volgen</p>
-<a style="display: inline-block; padding: 12px 28px; border-radius: 6px; background-color: #ffffff; color: {INK}; font-weight: bold; text-decoration: none; letter-spacing: 0.03em;" href="{{{{PAGE:1}}}}">START</a>
+<a style="display: inline-block; padding: 12px 28px; border-radius: 6px; background-color: #ffffff; color: {INK}; font-weight: bold; text-decoration: none; " href="{{{{PAGE:1}}}}">START</a>
 </div>'''
 how = (f'<div style="margin: 28px 0; padding: 6px 24px 14px; background-color: {BLUET}; border-radius: 10px; border-left: 6px solid #00a1e1;">'
        f'<h3 style="{FONT} font-weight: bold;">Zo werk je met deze module</h3>'
